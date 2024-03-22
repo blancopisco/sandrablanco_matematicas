@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas II</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Matemáticas II</h1>
+        <p>Pregunta teórica:</p>
+        <p id="teorica"></p>
+        <p>Ejercicio resuelto:</p>
+        <p id="resuelto"></p>
+        <button class="button" onclick="generarTest()">Generar Test</button>
+        <button class="button" onclick="generarTablasCompletar()">Generar Tablas para Completar</button>
+    </div>
+
+    <script>
+        function generarTest() {
+            const testQuestions = {
+                "¿Cuál es el enunciado del Teorema de Bolzano?": "Si una función es continua en un intervalo cerrado [a, b] y signo f(a) ≠ signo f(b), entonces existe un c ∈ (a, b) tal que f(c) = 0.",
+                "¿Qué establece el Teorema de Weierstrass?": "Una función continua en un intervalo cerrado y acotado (de números reales) alcanza sus valores máximo y mínimo en puntos del intervalo."
+            };
+
+            let testHtml = "<h2>Test:</h2>";
+            for (const question in testQuestions) {
+                testHtml += "<p>" + question + "</p>";
+                testHtml += '<input type="text" id="' + question.replace(/\s+/g, '_') + '" placeholder="Respuesta">';
+                testHtml += '<button class="button" onclick="verificarRespuesta(\'' + question.replace(/\s+/g, '_') + '\', \'' + testQuestions[question] + '\')">Verificar</button>';
+            }
+            document.getElementById('teorica').innerHTML = "";
+            document.getElementById('resuelto').innerHTML = "";
+            document.getElementById('teorica').innerHTML = testHtml;
+        }
+
+        function generarTablasCompletar() {
+            const tablesToComplete = {
+                "Intervalo donde la función es continua": ["[-1, 1]", "[0, 2]"],
+                "Condiciones para que se cumpla el teorema de Rolle": ["Continua y derivable en el intervalo", "f(a) = f(b)"]
+            };
+
+            let tablesHtml = "<h2>Tablas para Completar:</h2>";
+            for (const title in tablesToComplete) {
+                tablesHtml += "<p>" + title + "</p>";
+                for (const blank of tablesToComplete[title]) {
+                    tablesHtml += '<input type="text" placeholder="' + blank + '">';
+                }
+            }
+            document.getElementById('teorica').innerHTML = "";
+            document.getElementById('resuelto').innerHTML = "";
+            document.getElementById('teorica').innerHTML = tablesHtml;
+        }
+
+        function verificarRespuesta(questionId, correctAnswer) {
+            const userAnswer = document.getElementById(questionId).value.trim();
+            if (userAnswer === correctAnswer) {
+                alert("Respuesta correcta!");
+            } else {
+                alert("Respuesta incorrecta. La respuesta correcta es: " + correctAnswer);
+            }
+        }
+    </script>
+</body>
+</html>
