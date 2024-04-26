@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios por hacer - Matemáticas II</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/000/432/791/original/sticker-design-for-word-math-vector.jpg')">
+    <header>
+        <h1>Ejercicios por hacer</h1>
+    </header>
+    <nav>
+        <a href="index.html"> Inicio</a>  
+        <a href="2.html">Teoría</a>
+        <a href="3.html"> Ejercicios resueltos</a>   
+        <a href="5.html">Ejercicios tipo test</a> 
+    </nav>
+    <section>
+        <h2>Ejercicio 1</h2>
+        <p>¿Se puede aplicar el teorema del valor medio a f(x) = 1/x^2  en [0,2]?</p>
+        <form onsubmit="return checkAnswer('si', 1)">
+            <label for="respuesta1">Respuesta:</label>
+            <input type="text" id="respuesta1" name="respuesta1">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback1"></p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 2</h2>
+        <p>Calcular la derivada de f(x) = e^x en x = 2.</p>
+        <form onsubmit="return checkAnswer('e^2', 2)">
+            <label for="respuesta2">Respuesta:</label>
+            <input type="text" id="respuesta2" name="respuesta2">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback2"></p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 3</h2>
+        <p>Encuentra la integral indefinida de f(x) = 3x^2 - 2x + 1 .</p>
+        <form onsubmit="return checkAnswer('x^3 - x^2 + x', 3)">
+            <label for="respuesta3">Respuesta:</label>
+            <input type="text" id="respuesta3" name="respuesta3">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback3"></p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 4</h2>
+        <p>Escribe la derivada de f(X)=2x^4 + x^3 - x^2</p>
+        <form onsubmit="return checkAnswer('8x^3 + 3x^2 - 2x', 4)">
+            <label for="respuesta4">Respuesta:</label>
+            <input type="text" id="respuesta4" name="respuesta4">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback4"></p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 5</h2>
+        <p>Deriva esta función exponencial: f(x)=e^(3-x^2)</p>
+        <form onsubmit="return checkAnswer('-2x*e^(3-x^2)', 5)">
+            <label for="respuesta5">Respuesta:</label>
+            <input type="text" id="respuesta5" name="respuesta5">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback5"></p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 6</h2>
+        <p>Haz la derivada de la siguiente función: f(x)=(x^2+3x-2)^4</p>
+        <form onsubmit="return checkAnswer('(8X+12)*(x^2+3x-2)^3', 6)">
+            <label for="respuesta6">Respuesta:</label>
+            <input type="text" id="respuesta6" name="respuesta6">
+            <button type="submit">Comprobar</button>
+        </form>
+        <p id="respuesta-feedback6"></p>
+    </section>
+
+
+    <footer>
+        <p>Sandra Blanco Pisco</p>
+        <p>&copy; 2024 Matemáticas II</p>
+    </footer>
+
+    <script>
+        function checkAnswer(expectedAnswer, exerciseNumber) {
+            var respuesta = document.getElementById('respuesta' + exerciseNumber).value;
+            if (respuesta.toLowerCase() === expectedAnswer.toLowerCase()) {
+                document.getElementById('respuesta-feedback' + exerciseNumber).innerText = '¡Correcto!';
+            } else {
+                document.getElementById('respuesta-feedback' + exerciseNumber).innerText = 'Incorrecto. Intenta de nuevo.';
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
